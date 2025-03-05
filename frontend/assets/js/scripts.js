@@ -33,6 +33,7 @@ const fruits = {
   fruitState: [],
   setFruitState: (fruit) => this.fruitState = fruit    
 }
+
 async function listFruits(){
   fruits.fruitState = await getFruitData();
   console.log(fruits.fruitState)
@@ -44,6 +45,10 @@ async function listFruits(){
 }
 listFruits()
 
+
+
+
+
 /* function openModal(){
   fruitState.setFruitState(!fruitState.value);
   console.log(fruitState.value)
@@ -52,6 +57,7 @@ listFruits()
 async function getFruitData() {
   const url = "http://localhost:5000/frutas";
   try {
+    console.log('iniciando')
     const response = await fetch(url, {
       method: "GET",
     });  
@@ -76,7 +82,7 @@ async function createFruit(event) {
   
   const formData = new FormData();
   formData.append("nome", formNome.value);
-  formData.append("valor", formValor.value);
+  formData.append("valor", valorFloat);
   formData.append("descricao", formDescricao.value);
   formData.append("imagem", formImage.files[0]);
   console.log(formImage.files[0])

@@ -56,6 +56,7 @@ def criar_fruta():
 @app.route('/frutas', methods=['GET'])
 def listar_frutas():
     frutas = Fruta.query.all()
+    print(frutas)
     return jsonify([
         {'id': fruta.id, 'nome': fruta.nome, 'valor': fruta.valor, 'descricao': fruta.descricao, 'imagem': f'/assets/{fruta.imagem}'}
 
